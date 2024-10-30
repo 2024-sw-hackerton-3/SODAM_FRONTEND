@@ -32,6 +32,17 @@ class UserApi {
       }
     )
   }
+
+  public static async patchAllergy(
+    allergies: string[]
+  ): Promise<void> {
+    return await customAxios.patch(
+      `${REACT_APP_BASE_URL}/user/allergy`,
+      {
+        "allergies": allergies
+      }
+    )
+  }
 }
 
 export default UserApi;

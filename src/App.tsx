@@ -10,6 +10,14 @@ import Like from "./components/like";
 import Loading from "./components/loading";
 import Search from "./components/search";
 
+function setScreenSize() {
+  let vh = window.innerHeight * 0.01;
+
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setScreenSize();
+
 function App() {
   return (
     <div>

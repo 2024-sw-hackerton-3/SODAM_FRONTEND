@@ -1,19 +1,71 @@
 import styled from "styled-components";
 
 // Container
-export const Container = styled.div`
-  width: 90vw;
-  height: 100vh;
+
+export const LikeContainer = styled.div`
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  background-color: #f9f9f9;
-`;
+  background-color: #F5F5F5;
+`
 
-export const Header = styled.h1`
-  font-size: 18px;
-  font-weight: bold;
-  margin: 16px 0;
+export const LikeTopBarContainer = styled.div`
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+`
+
+export const LikeBackButtonContainer = styled.div`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+`
+
+export const LikeBackButtonImg = styled.img`
+  width: 24px;
+  height: 24px;
+`
+
+export const LikeItemContainer = styled.div`
+  width: calc(100% - 32px);
+  height: calc(100% - 48px - 12px);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 22px;
+  overflow-y: scroll;
+  overflow: auto;
+`
+
+export const LikeItemHorizontalContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-between;
+`
+
+export const LikeTitleText = styled.div`
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #000000;
+  margin-left: 16px;
+  text-align: start;
+`
+
+export const ItemContainer = styled.div`
+  height: calc(100% - 48px - 12px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow: auto;
 `;
 
 export const Item = styled.div`
@@ -42,22 +94,31 @@ export const Icon = styled.div<{ selected: boolean }>`
   }
 `;
 
-// Footer
-export const Footer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-`;
-
-// Button styling
-export const Button = styled.button`
+export const LikeButtonContainer = styled.div`
   width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #ff5722;
+  min-height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* margin-bottom: 12px; */
+`
+
+export const LikeButton = styled.button`
+  width: calc(100% - 32px);
+  height: 100%;
   border: none;
   border-radius: 12px;
-  cursor: pointer;
-`;
+  background: #FE4E26;
+  align-self: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff
+  ;
+`
+export const Spacer = styled.div<{ width?: string, height?: string }>`
+  width: ${props => props.width || '0px'};
+  height: ${props => props.height || '0px'};
+`
