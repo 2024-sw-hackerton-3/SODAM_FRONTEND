@@ -5,6 +5,7 @@ import FoodApi from "../../api/food/FoodApi";
 import LoadingScreen from "../loading";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { FoodRecipeState } from "../../state/state";
+import { useNavigate } from "react-router-dom";
 
 const CameraPage = () => {
     const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -13,6 +14,7 @@ const CameraPage = () => {
 
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
+    const navigate = useNavigate();
     const setFoodRecipeState = useSetRecoilState(FoodRecipeState);
     const foodRecipeState = useRecoilState(FoodRecipeState);
 
@@ -37,6 +39,7 @@ const CameraPage = () => {
         const response = await FoodApi.getFoodQueryFile(file)
 
         setFoodRecipeState(response);
+        navigate("/cameraResult");
       }
     }
 

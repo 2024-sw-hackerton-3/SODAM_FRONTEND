@@ -5,12 +5,13 @@ interface resultItemProps {
   title: string,
   description: string,
   caption: string
-  warring?: string
+  warring?: string,
+  onClick?: () => void
 }
 
-const ResultItem = ({ src, title, description, caption, warring }: resultItemProps) => {
+const ResultItem = ({ src, title, description, caption, warring, onClick }: resultItemProps) => {
   return (
-    <S.resultItemContainer>
+    <S.resultItemContainer onClick={onClick}>
       <S.resultItemImg src={src}/>
       <S.resultItemContentContainer>
         <S.resultItemTitle>{title}</S.resultItemTitle>

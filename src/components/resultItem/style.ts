@@ -8,6 +8,7 @@ export const resultItemContainer = styled.div`
   gap: 10px;
   background-color: white;
   border-radius: 12px;
+  cursor: pointer;
 `
 
 export const resultItemContentContainer = styled.div`

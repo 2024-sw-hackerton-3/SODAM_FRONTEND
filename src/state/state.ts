@@ -7,11 +7,11 @@ export const FoodRecipeState = atom<FoodRecipeResponse>({
   default: {
     danger: false,
     name: '',
-    substan_list: [],
+    substanList: [],
     substan: [],
     sauce: [],
     step: [],
-    cooking_time: '',
+    cookingTime: '',
     qnt: '',
   }
 });

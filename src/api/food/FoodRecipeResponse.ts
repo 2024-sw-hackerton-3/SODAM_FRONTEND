@@ -2,10 +2,10 @@
 export interface FoodRecipeResponse {
   danger: Boolean;
   name: string;
-  substan_list: string[];
+  substanList: string[];
   substan: string[];
   sauce: string[];
   step: string[];
-  cooking_time: string;
+  cookingTime: string;
   qnt: string;
 }

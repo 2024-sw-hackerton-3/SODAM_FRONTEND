@@ -8,8 +8,11 @@ import RecipeIconItem from "./recipeIconItem";
 import RecipeIngredeintItem from "./recipeIngredientItem";
 import { useState } from "react";
 import RecipePager from "./recipePager";
+import { useRecoilState } from "recoil";
+import { FoodRecipeState } from "../../state/state";
 
 const RecipeScreen = () => {
+  const foodRecipeState = useRecoilState(FoodRecipeState)[0];
 
   const [isRecipePagerOpen, setIsRecipePagerOpen] = useState(false);
 
@@ -22,6 +25,7 @@ const RecipeScreen = () => {
   }
 
   const recipeImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAV2rUrUswif9EdhpizFtbW1nz2zaA4fU2ww&s";
+
   return (
     <S.RecipeContainer>
       {isRecipePagerOpen && (<RecipePager onClose={onCloseRecipePager}/>)}
