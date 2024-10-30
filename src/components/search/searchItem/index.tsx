@@ -3,11 +3,12 @@ import * as S from "./style"
 
 interface SearchItemProps {
   item: string;
+  onClick?: () => void;
 }
 
-const SearchItem = ({ item }: SearchItemProps) => {
+const SearchItem = ({ item, onClick }: SearchItemProps) => {
   return (
-    <S.SearchItemContainer>
+    <S.SearchItemContainer onClick={onClick}>
       <S.SearchItemText>{item}</S.SearchItemText>
     </S.SearchItemContainer>
   );

@@ -13,5 +13,6 @@ export const FoodRecipeState = atom<FoodRecipeResponse>({
     step: [],
     cookingTime: '',
     qnt: '',
+    image: ''
   }
 });

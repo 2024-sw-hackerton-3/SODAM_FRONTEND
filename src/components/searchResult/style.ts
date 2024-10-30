@@ -94,6 +94,14 @@ export const SearchResultContentContainer = styled.div`
   gap: 8px;
 `
 
+export const SearchResultEmptyText = styled.div`
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: bold;
+  color: #000000;
+  margin-left: 16px;
+`
+
 
 export const Spacer = styled.div<{ width?: string, height?: string }>`
   width: ${props => props.width || '0px'};

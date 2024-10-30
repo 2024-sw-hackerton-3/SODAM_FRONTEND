@@ -8,4 +8,5 @@ export interface FoodRecipeResponse {
   step: string[];
   cookingTime: string;
   qnt: string;
+  image: string;
 }
