@@ -3,6 +3,8 @@ import * as S from "./style";
 import Input from "../../components/input";
 import Back from "../../assets/image/back.svg";
 import { useNavigate } from "react-router-dom";
+import UserApi from "../../api/user/UserApi";
+import { saveToken } from "../../api/saveToken";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,10 +22,20 @@ const Login = () => {
     });
   };
 
+  const onClickLogin = async () => {
+    try {
+      const response = await UserApi.postSignIn(input.userid, input.password)
+      saveToken(response.access_token)
+      navigate("/");
+    } catch (error) {
+      alert("아이디 또는 비밀번호를 확인해주세요.");
+    }
+  }
+
   return (
     <S.Layout>
       <S.Header>
-        <S.Back src={Back} alt="뒤로가기" />
+        <S.Back src={Back} alt="뒤로가기"/>
       </S.Header>
       <S.Title>{loginText}</S.Title>
       <S.InputContainer>
@@ -44,9 +56,7 @@ const Login = () => {
         />
       </S.InputContainer>
       <S.LoginButton
-        onClick={() => {
-          navigate(`/`);
-        }}
+        onClick={onClickLogin}
       >
         로그인
       </S.LoginButton>
