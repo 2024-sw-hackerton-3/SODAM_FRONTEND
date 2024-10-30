@@ -5,6 +5,7 @@ import CameraPage from './components/camera';
 import CameraResultScreen from './components/cameraResult';
 import RecipeScreen from './components/recipe';
 import LoadingScreen from './components/loading';
+import SearchScreen from './components/search';
 
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
@@ -17,7 +18,7 @@ setScreenSize();
 function App() {
   return (
     <div className="App">
-      <LoadingScreen/>
+      <SearchScreen/>
     </div>
   );
 }
