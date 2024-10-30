@@ -80,6 +80,7 @@ export const LikeButton = styled.button`
   font-size: 16px;
   line-height: 1.5;
   color: #ffffff;
+  cursor: pointer;
 `
 
 

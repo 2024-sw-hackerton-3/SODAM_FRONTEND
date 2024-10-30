@@ -2,6 +2,9 @@ import * as S from "./style"
 import BackIcon from "../../assets/image/ic_back.png";
 import LikeItem from "./likeItem";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import UserApi from "../../api/user/UserApi";
+import { saveToken } from "../../api/saveToken";
 
 interface LikeItemProps {
   id: number;
@@ -11,6 +14,10 @@ interface LikeItemProps {
 }
 
 const LikeScreen = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [testItems, setTestItems] = useState<LikeItemProps[]>([
     {
       id: 1,
@@ -152,6 +159,18 @@ const LikeScreen = () => {
     }))
   }
 
+  const onClickSuccess = async () => {
+    const response = await UserApi.postSignUp(
+      location.state.name,
+      location.state.userid,
+      location.state.password,
+      testItems.filter(item => item.isSelect).map(item => item.title)
+    );
+
+    saveToken(response.access_token);
+    navigate("/allergy");
+  }
+
   return (
     <S.LikeContainer>
       <S.LikeTopBarContainer>
@@ -190,7 +209,7 @@ const LikeScreen = () => {
         
       </S.LikeItemContainer>
       <S.LikeButtonContainer>
-        <S.LikeButton>회원가입 완료하기</S.LikeButton>
+        <S.LikeButton onClick={onClickSuccess}>회원가입 완료하기</S.LikeButton>
       </S.LikeButtonContainer>
     </S.LikeContainer>
   )

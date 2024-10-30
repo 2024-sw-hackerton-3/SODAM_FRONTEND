@@ -47,9 +47,10 @@ const SingUp = () => {
       return;
     }
     try {
-      const response = await UserApi.postSignUp(input.name, input.userid, input.password)
-      saveToken(response.access_token)
-      navigate("/")
+      // const response = await UserApi.postSignUp(input.name, input.userid, input.password)
+      // saveToken(response.access_token)
+      // navigate("/")
+      navigate("/like", { state: { name: input.name, userid: input.userid, password: input.password } });
     } catch (error) {
       alert("회원가입에 실패했습니다.")
     }

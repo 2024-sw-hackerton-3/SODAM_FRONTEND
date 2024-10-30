@@ -21,7 +21,8 @@ class UserApi {
   public static async postSignUp(
     account_id: string,
     password: string,
-    name: string
+    name: string,
+    foods: string[]
   ): Promise<UserSignInResponse> {
     return await axios.post(
       `${REACT_APP_BASE_URL}/user/signup`,
@@ -29,7 +30,7 @@ class UserApi {
         "accountId": account_id,
         "password": password,
         "name": name,
-        "foods": []
+        "foods": foods
       }
     )
   }
