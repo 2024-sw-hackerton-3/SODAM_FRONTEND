@@ -24,7 +24,7 @@ const SingUp = () => {
     });
   };
 
-  const onClickSignUp = () => {
+  const onClickSignUp = async () => {
     if (input.name === "") {
       alert("이름을 입력해주세요.");
       return;
@@ -46,17 +46,13 @@ const SingUp = () => {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
-    const signUp = async () => {
-      try {
-        const response = await UserApi.postSignUp(input.name, input.userid, input.password)
-        saveToken(response.access_token)
-        navigate("/")
-      } catch (error) {
-        alert("회원가입에 실패했습니다.")
-      }
+    try {
+      const response = await UserApi.postSignUp(input.name, input.userid, input.password)
+      saveToken(response.access_token)
+      navigate("/")
+    } catch (error) {
+      alert("회원가입에 실패했습니다.")
     }
-  
-    signUp()
   }
 
   return (
