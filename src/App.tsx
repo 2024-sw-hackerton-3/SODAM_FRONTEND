@@ -13,6 +13,7 @@ import { RecoilRoot } from "recoil";
 import RecipeScreen from "./components/recipe";
 import 'swiper/css';
 import 'swiper/css/pagination';
+import SearchResultScreen from "./components/searchResult";
 
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
@@ -35,6 +36,7 @@ function App() {
           <Route path="/cameraResult" element={<CameraResult />} />
           <Route path="/like" element={<Like />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/searchResult" element={<SearchResultScreen />} />
           <Route path="/recipe" element={<RecipeScreen/>} />
         </Routes>
       </div>

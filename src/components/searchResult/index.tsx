@@ -3,9 +3,11 @@ import BackIcon from '../../assets/ic_back.png';
 import SearchIcon from '../../assets/ic_search.png';
 import { useEffect, useRef } from "react";
 import ResultItem from "../resultItem";
+import { useNavigate } from "react-router-dom";
 
 const SearchResultScreen = () => {
-
+  
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
