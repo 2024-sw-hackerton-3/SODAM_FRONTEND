@@ -2,6 +2,8 @@ import axios from "axios";
 import customAxios, { REACT_APP_BASE_URL } from "../customAxios";
 import { FoodRecipeResponse } from "./FoodRecipeResponse";
 import FoodSuggestionFoodResponse from "./FoodSuggestionFoodResponse";
+import { FoodRecipeState } from "../../state/state";
+import FoodOrderResponse from "./FoodOrderResponse";
 
 class FoodApi {
   static async getFoodQueryImage(file: Blob): Promise<FoodRecipeResponse> {
@@ -45,6 +47,21 @@ class FoodApi {
   static async getFoodDetail(name: string, cooking_time: string, qnt: string): Promise<FoodRecipeResponse> {
     
     return (await customAxios.get<FoodRecipeResponse>(`/food/query/recipe?name=${name}&cooking_time=${cooking_time}&qnt=${qnt}`)).data
+  }
+
+  static getOrderById(id: number): FoodOrderResponse {
+    return {
+      id: id,
+      title: '피자',
+      price: "12000",
+      src: 'https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg',
+      brand: '피자헛',
+      enTitle: 'Pizza',
+      productNumber: '123456',
+      company: '피자헛',
+      state: 'A등급',
+      madeIn: '한국',
+    }
   }
 }
 
