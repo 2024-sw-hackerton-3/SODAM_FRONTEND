@@ -1,7 +1,7 @@
 import * as S from "./style"
-import BackIcon from '../../assets/ic_back.png';
-import SearchIcon from '../../assets/ic_search.png';
-import WarringIcon from '../../assets/ic_warring.png';
+import BackIcon from '../../assets/image/ic_back.png';
+import SearchIcon from '../../assets/image/ic_search.png';
+import WarringIcon from '../../assets/image/ic_warring.png';
 import { useRef } from "react";
 import SearchItem from "./searchItem";
 

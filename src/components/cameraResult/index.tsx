@@ -1,5 +1,5 @@
 import * as S from './style';
-import BackIcon from '../../assets/ic_back.png';
+import BackIcon from '../../assets/image/ic_back.png';
 import CameraResultItem from '../resultItem';
 
 

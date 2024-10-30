@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as S from "./style";
-import ImageIcon from "../../assets/ic_image.png";
+import ImageIcon from "../../assets/image/ic_image.png";
 
 const CameraPage = () => {
     const videoRef = useRef<HTMLVideoElement | null>(null);
