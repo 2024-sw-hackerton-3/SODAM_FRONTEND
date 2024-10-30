@@ -60,6 +60,13 @@ export const CameraResultSearchText = styled.div`
   color: #000000;
 `
 
+export const CameraResultSuggestionText = styled.div`
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #000000;
+`
+
 
 export const Spacer = styled.div<{ width?: string, height?: string }>`
   width: ${props => props.width || '0px'};

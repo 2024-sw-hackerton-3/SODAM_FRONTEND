@@ -18,9 +18,16 @@ const CameraResultScreen = () => {
         <S.Spacer height='8px' />
         <S.CameraResultSearchText>토마토 파스타로 추론하고 검색된 결과에요.</S.CameraResultSearchText>
         <S.Spacer height='8px' />
-        {[1, 2, 3, 4, 5, 2, 2, 2, 2, 2, 3, 3, 3].map((_, index) => (
-          <CameraResultItem key={index} src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAV2rUrUswif9EdhpizFtbW1nz2zaA4fU2ww&s"} title='토마토 파스타' description='이미지를 통해 추론된 결과입니다.' caption='2인분 · 10분' />
+        <S.CameraResultSuggestionText>이런 밀키트는 어떠세요?</S.CameraResultSuggestionText>
+        {[1, 2, 3].map((_, index) => (
+          <CameraResultItem key={index} src={"https://img.danawa.com/prod_img/500000/891/318/img/17318891_1.jpg?_v=20230912093927&shrink=360:360"} title='사골 칼국수' description='(주) 삼립에서 제공하는 맛있는 사골 칼국수에요.' caption='2인분 · 6800￦' />
         ))}
+        <S.CameraResultSuggestionText>검색결과</S.CameraResultSuggestionText>
+        {[1, 2, 3].map((_, index) => (
+          <CameraResultItem key={index} src={"https://img.danawa.com/prod_img/500000/891/318/img/17318891_1.jpg?_v=20230912093927&shrink=360:360"} title='토마토 파스타' description='누구나 손쉽게 조리할 ~~' caption='2인분 · 6800￦' warring='알레르기 주의' />
+        ))}
+
+
       </S.CameraResultContentContainer>
     </S.CameraResultContainer>
   )

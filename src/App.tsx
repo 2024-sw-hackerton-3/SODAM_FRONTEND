@@ -23,7 +23,7 @@ setScreenSize();
 function App() {
   return (
     <div className="App">
-      <RecipeScreen></RecipeScreen>
+      <CameraResultScreen></CameraResultScreen>
     </div>
   );
 }

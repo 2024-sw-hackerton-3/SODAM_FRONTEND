@@ -43,10 +43,16 @@ export const resultItemDescription = styled.div`
   color: #000000;
 `
 
-export const resultItemCaption = styled.div`
+export const resultItemCaptionContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`
+
+export const resultItemCaption = styled.div<{ color?: string}>`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3;
-  color: #6B7280;
+  color: ${props => props.color || '#6B7280'};
 `
 
