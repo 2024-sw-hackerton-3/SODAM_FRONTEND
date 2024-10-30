@@ -6,12 +6,25 @@ import BaconIcon from '../../assets/ic_bacon.png';
 import SaltIcon from '../../assets/ic_salt.png';
 import RecipeIconItem from "./recipeIconItem";
 import RecipeIngredeintItem from "./recipeIngredientItem";
+import { useState } from "react";
+import RecipePager from "./recipePager";
 
 const RecipeScreen = () => {
+
+  const [isRecipePagerOpen, setIsRecipePagerOpen] = useState(false);
+
+  const onCloseRecipePager = () => {
+    setIsRecipePagerOpen(false);
+  }
+
+  const onOpenRecipePager = () => {
+    setIsRecipePagerOpen(true);
+  }
 
   const recipeImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAV2rUrUswif9EdhpizFtbW1nz2zaA4fU2ww&s";
   return (
     <S.RecipeContainer>
+      {isRecipePagerOpen && (<RecipePager onClose={onCloseRecipePager}/>)}
       <S.RecipeTopBarContainer>
         <S.RecipeBackButtonContainer>
           <S.RecipeBackButtonImg src={BackIcon}/>
@@ -75,7 +88,10 @@ const RecipeScreen = () => {
           </S.RecipeIngredientContainer>
 
           <S.Spacer height='26px'/>
-          <S.RecipeTitle>조리 방법</S.RecipeTitle>
+          <S.RecipeMethodTitleContainer>
+            <S.RecipeTitle>조리 방법</S.RecipeTitle>
+            <S.RecipeMethodDetailButton onClick={onOpenRecipePager}>자세히 보기</S.RecipeMethodDetailButton>
+          </S.RecipeMethodTitleContainer>
           <S.RecipeTitle>
             1.
             <S.RecipeRecipeMethodText>파스타 생면을 물이 펄펄 끓을 때 투하합니다. (바로 다음단계를 동시에 진행해주세요.)</S.RecipeRecipeMethodText>

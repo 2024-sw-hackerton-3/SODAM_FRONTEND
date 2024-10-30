@@ -7,6 +7,10 @@ import RecipeScreen from './components/recipe';
 import LoadingScreen from './components/loading';
 import SearchScreen from './components/search';
 import SearchResultScreen from './components/searchResult';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import RecipePager from './components/recipe/recipePager';
+
 
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
@@ -19,7 +23,7 @@ setScreenSize();
 function App() {
   return (
     <div className="App">
-      <SearchResultScreen/>
+      <RecipeScreen></RecipeScreen>
     </div>
   );
 }

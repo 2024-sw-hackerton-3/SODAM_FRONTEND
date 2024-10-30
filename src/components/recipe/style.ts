@@ -130,6 +130,25 @@ export const RecipeIngredientIconContainer = styled.div`
   justify-content: space-between;
 `
 
+export const RecipeMethodTitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const RecipeMethodDetailButton = styled.button`
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  padding: 4px 8px;
+  background: #FF7637;
+  border-radius: 12px;
+  border: none;
+`
+
 export const RecipeRecipeMethodText = styled.div`
   font-size: 14px;
   font-weight: 400;
