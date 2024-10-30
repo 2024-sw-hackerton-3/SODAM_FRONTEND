@@ -5,22 +5,28 @@ export const Layout = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #f9f9f9;
-  padding: 16px;
   box-sizing: border-box;
 `;
+
+export const Container = styled.div`
+  padding: 0px 16px;
+  display: flex;
+  flex-direction: column;
+  
+`
 
 // Header
 export const Header = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 6px 0px;
 `;
 
 export const BackIcon = styled.img`
   width: 24px;
   height: 24px;
   cursor: pointer;
-  padding: 0 20px;
+  margin: 0px 16px;
 `;
 
 export const HeaderTitle = styled.h1`
@@ -35,14 +41,15 @@ export const CategoryTabs = styled.div`
   justify-content: space-between;
   overflow-x: auto;
   margin-bottom: 16px;
-  padding-bottom: 8px;
   border-bottom: 1px solid #ddd;
 `;
 
 export const Category = styled.div`
   font-size: 14px;
   color: #a5a5a5;
-  padding: 8px 12px;
+  padding-top: 12px;
+  padding: 8px, 0px;
+  margin-left: 4px;
   cursor: pointer;
   white-space: nowrap;
 
