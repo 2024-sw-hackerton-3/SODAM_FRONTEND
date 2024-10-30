@@ -1,16 +1,51 @@
 import { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 import ImageIcon from "../../assets/image/ic_image.png";
+import FoodApi from "../../api/food/FoodApi";
+import LoadingScreen from "../loading";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { FoodRecipeState } from "../../state/state";
 
 const CameraPage = () => {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const [photo, setPhoto] = useState<string | null>(null);
-   
-    const handleCapture = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+    const setFoodRecipeState = useSetRecoilState(FoodRecipeState);
+    const foodRecipeState = useRecoilState(FoodRecipeState);
+
+    useEffect(() => {
+      console.log("전역 상태 변경");
+      
+      console.log(foodRecipeState);
+      
+    }, [foodRecipeState]);
+
+    const fileHandler = () => {
+      if (fileInputRef.current) {
+        fileInputRef.current!.click();
+      }
+    };
+
+    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (file) {
+        console.log("선택된 파일:", file);
+        setIsLoading(true);
+        const response = await FoodApi.getFoodQueryFile(file)
+
+        setFoodRecipeState(response);
+      }
+    }
+
+    const handleCapture = async () => {
       if (!videoRef.current || !canvasRef.current) {
         return;
       }
+
+      setIsLoading(true);
    
       const $canvas = canvasRef.current;
       const $video = videoRef.current;
@@ -24,8 +59,17 @@ const CameraPage = () => {
       $canvas.height = $video.videoHeight;
    
       context.drawImage($video, 0, 0, $canvas.width, $canvas.height);
+      $canvas.toBlob(async (blob) => {
+        if (blob === null) { return }
+        try {
+          const response = await FoodApi.getFoodQueryImage(blob)
+          
+        } catch (e) {
+          console.error(e)
+        }
+      });
+
       const imageToDataUrl = $canvas.toDataURL('image/png');
-      setPhoto(imageToDataUrl);
     };
    
     useEffect(() => {
@@ -47,9 +91,19 @@ const CameraPage = () => {
    
     return (
       <S.CameraContainer>
+        {isLoading && <LoadingScreen/>} 
         <video ref={videoRef} autoPlay playsInline style={{ width: '100vw', height: '100%' }}  />
         <S.CameraButtonContainer>
-          <S.ImageSelectIconButton src={ImageIcon} alt='camera' />
+          <S.ImageSelectIconButton src={ImageIcon} alt='camera' onClick={fileHandler}/>
+          <input
+              style={{ display: 'none' }}
+              name="file"
+              ref={fileInputRef} 
+              type="file"
+              accept="image/*" 
+              className="a11y-hidden"
+              onChange={handleFileChange}
+            />;
           <S.Spacer />
           <S.CameraButton onClick={handleCapture}/>
           <S.Spacer/> 
