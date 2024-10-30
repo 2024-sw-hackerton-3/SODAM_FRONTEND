@@ -96,7 +96,7 @@ export const RecipeInfoContainer = styled.div`
 export const RecipeInfoIcon = styled.img`
   width: 24px;
   height: 24px;
-  margin: 10px 0px
+  margin: 10px 0px;
 `
 
 export const RecipeInfoText = styled.div`
