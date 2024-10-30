@@ -28,7 +28,7 @@ class UserApi {
         "accountId": account_id,
         "password": password,
         "name": name,
-        "foods": null
+        "foods": []
       }
     )
   }
