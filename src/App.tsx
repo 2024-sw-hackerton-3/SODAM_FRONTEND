@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CameraPage from './components/camera';
+import CameraResultScreen from './components/cameraResult';
 
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
@@ -14,7 +15,7 @@ setScreenSize();
 function App() {
   return (
     <div className="App">
-      <CameraPage/>
+      <CameraResultScreen/>
     </div>
   );
 }
