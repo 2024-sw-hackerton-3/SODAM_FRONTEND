@@ -10,6 +10,7 @@ import SearchResultScreen from './components/searchResult';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import RecipePager from './components/recipe/recipePager';
+import LikeScreen from './components/like';
 
 
 function setScreenSize() {
@@ -23,7 +24,7 @@ setScreenSize();
 function App() {
   return (
     <div className="App">
-      <CameraResultScreen></CameraResultScreen>
+      <LikeScreen></LikeScreen>
     </div>
   );
 }
