@@ -3,11 +3,17 @@ import BackIcon from '../../assets/image/ic_back.png';
 import CameraResultItem from '../resultItem';
 import { useRecoilState } from 'recoil';
 import { FoodRecipeState } from '../../state/state';
+import { useNavigate } from 'react-router-dom';
 
 
 const CameraResultScreen = () => {
 
   const foodRecipeState = useRecoilState(FoodRecipeState)[0];
+  const navigate = useNavigate();
+
+  const onClickNavigate = () => {
+    navigate('/recipe');
+  }
 
   return (
     <S.CameraResultContainer>
@@ -27,7 +33,7 @@ const CameraResultScreen = () => {
         ))}
         <S.CameraResultSuggestionText>검색결과</S.CameraResultSuggestionText>
         {[1].map((_, index) => (
-          <CameraResultItem key={index} src={"https://img.danawa.com/prod_img/500000/891/318/img/17318891_1.jpg?_v=20230912093927&shrink=360:360"} title={foodRecipeState.name} description={foodRecipeState.name} caption={`${foodRecipeState.qnt} · ${foodRecipeState.cookingTime}`} warring={foodRecipeState.danger? '알레르기 주의': undefined} />
+          <CameraResultItem key={index} src={"https://img.danawa.com/prod_img/500000/891/318/img/17318891_1.jpg?_v=20230912093927&shrink=360:360"} title={foodRecipeState.name} description={foodRecipeState.name} caption={`${foodRecipeState.qnt} · ${foodRecipeState.cookingTime}`} warring={foodRecipeState.danger? '알레르기 주의': undefined} onClick={onClickNavigate}/>
         ))}
 
 

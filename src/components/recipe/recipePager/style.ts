@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const RecipePagerContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100 - 20px);
+  height: 100vh;
   display: absolute;
-  margin-top: 20px;
   z-index: 100;
   background: #ffffff;
 `
@@ -17,7 +16,7 @@ export const RecipePagerContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-left: 16px;
-  justify-content: center;
+  
   gap: 8px;
 `
 
@@ -25,7 +24,6 @@ export const RecipePagerInnerContainer = styled.div`
   width: calc(100% - 20px);
   height: 100%;
   display: flex;
-  align-self: flex-start;
   flex-direction: column;
   align-items: start;
   margin-left: 10px;
@@ -50,7 +48,7 @@ export const RecipePagerExitButton = styled.button`
   height: 24px;
   position: absolute;
   right: 26px;
-  top: 0px;
+  top: 20px;
   background: none;
   border: none;
   cursor: pointer;

@@ -10,6 +10,9 @@ import Like from "./components/like";
 import Loading from "./components/loading";
 import Search from "./components/search";
 import { RecoilRoot } from "recoil";
+import RecipeScreen from "./components/recipe";
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
@@ -30,9 +33,9 @@ function App() {
           <Route path="/allergy" element={<Allergy />} />
           <Route path="/camera" element={<Camera />} />
           <Route path="/cameraResult" element={<CameraResult />} />
-          <Route path="like" element={<Like />} />
-          <Route path="Lading" element={<Loading />} />
-          <Route path="search" element={<Search />} />
+          <Route path="/like" element={<Like />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/recipe" element={<RecipeScreen/>} />
         </Routes>
       </div>
     </RecoilRoot>
