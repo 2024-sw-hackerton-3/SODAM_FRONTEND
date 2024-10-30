@@ -1,4 +1,4 @@
 
 export interface UserSignInResponse {
-  access_token: string;
+  accessToken: string;
 }

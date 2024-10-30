@@ -167,7 +167,7 @@ const LikeScreen = () => {
       testItems.filter(item => item.isSelect).map(item => item.title)
     );
 
-    saveToken(response.access_token);
+    saveToken(response.accessToken);
     navigate("/allergy");
   }
 
