@@ -1,6 +1,6 @@
 import * as S from './style';
 import BackIcon from '../../assets/ic_back.png';
-import CameraResultItem from './cameraResultItem';
+import CameraResultItem from '../resultItem';
 
 
 const CameraResultScreen = () => {

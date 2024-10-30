@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CameraResultItemContainer = styled.div`
+export const resultItemContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -10,7 +10,7 @@ export const CameraResultItemContainer = styled.div`
   border-radius: 12px;
 `
 
-export const CameraResultItemContentContainer = styled.div`
+export const resultItemContentContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -22,28 +22,28 @@ export const CameraResultItemContentContainer = styled.div`
 `
 
 
-export const CameraResultItemImg = styled.img`
+export const resultItemImg = styled.img`
   margin-left: 10px;
   width: 64px;
   height: 64px;
   border-radius: 8px;
 `
 
-export const CameraResultItemTitle = styled.div`
+export const resultItemTitle = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 1.3;
   color: #000000;
 `
 
-export const CameraResultItemDescription = styled.div`
+export const resultItemDescription = styled.div`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3;
   color: #000000;
 `
 
-export const CameraResultItemCaption = styled.div`
+export const resultItemCaption = styled.div`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3;
