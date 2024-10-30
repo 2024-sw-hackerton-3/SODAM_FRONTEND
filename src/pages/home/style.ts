@@ -21,6 +21,7 @@ export const SearchContainer = styled.div`
   background-color: ${theme.gray300};
   margin-bottom: 16px;
   border-radius: 8px;
+  cursor: pointer;
 `;
 
 export const Search = styled.div`
@@ -156,6 +157,7 @@ export const FunctionBox = styled.div`
   background-color: ${theme.white};
   align-items: flex-start;
   padding: 12px;
+  cursor: pointer;
 `;
 
 export const FunctionHeader = styled.div`
@@ -185,3 +187,9 @@ export const FunctionContent = styled.p`
   text-align: left;
   margin-top: 2px;
 `;
+
+
+export const Spacer = styled.div<{ width?: string, height?: string }>`
+  width: ${props => props.width || '0px'};
+  height: ${props => props.height || '0px'};
+`

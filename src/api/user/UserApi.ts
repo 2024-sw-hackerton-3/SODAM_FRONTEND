@@ -1,6 +1,7 @@
 import axios from "axios";
 import customAxios, { REACT_APP_BASE_URL } from "../customAxios";
 import { UserSignInResponse } from "./UserApiResponse";
+import UserSuggestionFoodResponse from "./UserSuggestionFoodResponse";
 
 class UserApi {
   public static async postSignIn(
@@ -42,6 +43,10 @@ class UserApi {
         "allergies": allergies
       }
     )
+  }
+
+  public static async getSuggestionFood(): Promise<UserSuggestionFoodResponse[]> {
+    return (await customAxios.get<UserSuggestionFoodResponse[]>(`/user/main`)).data
   }
 }
 

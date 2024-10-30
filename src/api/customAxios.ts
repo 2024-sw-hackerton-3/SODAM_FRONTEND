@@ -5,7 +5,7 @@ export const { REACT_APP_BASE_URL } = process.env;
 console.log(REACT_APP_BASE_URL);
 
 const customAxios = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com",
+  baseURL: REACT_APP_BASE_URL,
   headers: {
     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     "Content-Type": "application/json",

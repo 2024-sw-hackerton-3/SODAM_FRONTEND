@@ -36,6 +36,7 @@ export const SearchBackButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 4px;
+  cursor: pointer;
 `
 
 export const SearchBackButtonImg = styled.img`

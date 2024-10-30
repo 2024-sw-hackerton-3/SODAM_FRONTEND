@@ -4,17 +4,19 @@ import SearchIcon from '../../assets/image/ic_search.png';
 import WarringIcon from '../../assets/image/ic_warring.png';
 import { useRef } from "react";
 import SearchItem from "./searchItem";
+import { useNavigate } from "react-router-dom";
 
 
 const SearchScreen = () => {
 
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
 
 
   return (
     <S.SearchContainer>
       <S.SearchTopBarContainer>
-        <S.SearchBackButtonContainer>
+        <S.SearchBackButtonContainer onClick={() => {navigate("/")}}>
           <S.SearchBackButtonImg src={BackIcon}/>
         </S.SearchBackButtonContainer>
         
