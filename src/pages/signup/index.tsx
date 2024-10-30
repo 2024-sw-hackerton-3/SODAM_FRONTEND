@@ -3,6 +3,8 @@ import * as S from "./style";
 import Input from "../../components/input";
 import Back from "../../assets/image/back.svg";
 import { useNavigate } from "react-router-dom";
+import UserApi from "../../api/user/UserApi";
+import { saveToken } from "../../api/saveToken";
 
 const SingUp = () => {
   const navigate = useNavigate();
@@ -21,6 +23,41 @@ const SingUp = () => {
       [name]: value,
     });
   };
+
+  const onClickSignUp = () => {
+    if (input.name === "") {
+      alert("이름을 입력해주세요.");
+      return;
+    }
+    if (input.userid === "") {
+      alert("아이디를 입력해주세요.");
+      return;
+    }
+    if (input.password === "") {
+      alert("비밀번호를 입력해주세요.");
+      return;
+    }
+    if (input.passwordCheck === "") {
+      alert("비밀번호를 재입력해주세요.");
+      return;
+    }
+
+    if (input.password !== input.passwordCheck) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    const signUp = async () => {
+      try {
+        const response = await UserApi.postSignUp(input.name, input.userid, input.password)
+        saveToken(response.access_token)
+        navigate("/")
+      } catch (error) {
+        alert("회원가입에 실패했습니다.")
+      }
+    }
+  
+    signUp()
+  }
 
   return (
     <S.Layout>
@@ -61,9 +98,7 @@ const SingUp = () => {
         />
       </S.InputContainer>
       <S.LoginButton
-        onClick={() => {
-          navigate(``);
-        }}
+        onClick={onClickSignUp}
       >
         다음
       </S.LoginButton>
