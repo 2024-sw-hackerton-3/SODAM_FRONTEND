@@ -40,7 +40,7 @@ const RecipeScreen = () => {
       )}
       {!isRecipePagerOpen &&
       (<S.RecipeScrollContainer>
-        <S.RecipeThumbnail src={recipeImage}/>
+        <S.RecipeThumbnail src={foodRecipeState.image}/>
 
         <S.Spacer height='8px'/>
         <S.RecipeContentContainer>
@@ -77,6 +77,9 @@ const RecipeScreen = () => {
                           text={item}
                         />
                       ))}
+                      {3 - foodRecipeState.substanList.slice(index, index + 3).length != 0 && (
+                        <div style={{width: "48px"}}></div>
+                      )}
                     </S.RecipeIngredientIconContainer>
                   );
                 }
@@ -102,6 +105,9 @@ const RecipeScreen = () => {
                           text={item.split(":")[0]}
                         />
                       ))}
+                      {3 - foodRecipeState.sauce.slice(index, index + 3).length != 0 && (
+                        <div style={{width: "48px"}}></div>
+                      )}
                     </S.RecipeIngredientIconContainer>
                   );
                 }

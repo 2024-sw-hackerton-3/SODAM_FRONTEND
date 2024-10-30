@@ -20,7 +20,7 @@ const SearchResultScreen = () => {
 
   async function fetchData(text: string) {
     try {
-      const response = await FoodApi.getFoodQueryText(location.state);
+      const response = await FoodApi.getFoodQueryText(text);
       setSearchItems(response);
     } catch (error) {
       alert("검색 결과를 불러오는데 실패했습니다.");
@@ -53,7 +53,7 @@ const SearchResultScreen = () => {
         <LoadingScreen/>
       )}
       <S.SearchResultTopBarContainer>
-        <S.SearchResultBackButtonContainer>
+        <S.SearchResultBackButtonContainer onClick={() => {navigate("/search")}}>
           <S.SearchResultBackButtonImg src={BackIcon}/>
         </S.SearchResultBackButtonContainer>
         

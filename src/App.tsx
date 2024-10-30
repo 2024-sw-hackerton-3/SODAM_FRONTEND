@@ -14,6 +14,7 @@ import RecipeScreen from "./components/recipe";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import SearchResultScreen from "./components/searchResult";
+import Order from "./pages/order";
 
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
@@ -38,6 +39,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/searchResult" element={<SearchResultScreen />} />
           <Route path="/recipe" element={<RecipeScreen/>} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </div>
     </RecoilRoot>
